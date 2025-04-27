@@ -1,0 +1,99 @@
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateY(10px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.editor-content [data-placeholder]:empty:before {
+  content: attr(data-placeholder);
+  color: #94a3b8;
+  pointer-events: none;
+}
+
+.toolbar-popup {
+  animation: slideIn 0.2s ease-out;
+}
+
+.format-button {
+  @apply p-1.5 rounded-md text-slate-600 hover:bg-slate-100 transition-colors;
+}
+
+.format-button.active {
+  @apply bg-blue-100 text-blue-600;
+}
+
+.block-element {
+  animation: fadeIn 0.3s ease-out;
+}
+
+.interactive-element {
+  @apply relative px-1 py-0.5 bg-purple-100 text-purple-800 rounded border border-purple-200 hover:bg-purple-200 transition-colors;
+}
+
+.callout-block {
+  @apply p-4 rounded-lg my-2 border-l-4;
+}
+
+.callout-info {
+  @apply bg-blue-50 border-blue-500;
+}
+
+.callout-warning {
+  @apply bg-amber-50 border-amber-500;
+}
+
+.callout-error {
+  @apply bg-red-50 border-red-500;
+}
+
+.editor-wrapper {
+  min-height: 300px;
+}
+
+.code-block {
+  @apply bg-slate-800 text-slate-100 p-4 rounded-md my-2 font-mono text-sm;
+}
+
+.quote-block {
+  @apply border-l-4 border-slate-300 pl-4 py-1 my-2 text-slate-700 italic;
+}
+
+.list-item {
+  margin-left: 1.5rem;
+  position: relative;
+}
+
+.list-item::before {
+  position: absolute;
+  left: -1.5rem;
+}
+
+.list-item.bullet::before {
+  content: '•';
+}
+
+.list-item.numbered {
+  counter-increment: list-counter;
+}
+
+.list-item.numbered::before {
+  content: counter(list-counter) '.';
+}
+
+.selection-menu {
+  animation: fadeIn 0.2s ease-out;
+}
